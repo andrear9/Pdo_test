@@ -15,8 +15,11 @@ try{
     $sth->bindValue(':id', 2, PDO::PARAM_INT);
     $sth->execute();
     $result = $sth->fetchAll();
+    $username = $result[0][1];
+    $email = $result[0][0];
+
     //var_dump($result);
-    printf("l'email associata all'utente %s è: %s", $result[0][1], $result[0][0]);
+    printf("l'email associata all'utente %s è: %s", $username, $email);
 
 } catch (PDOException $e){
     printf("Connessione fallita: %s\n", $e->getMessage());
